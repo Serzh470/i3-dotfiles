@@ -1,0 +1,158 @@
+[bar/top]
+
+;------------;
+; DIMENSIONS ;
+;------------;
+
+width = 100%
+height = 24
+offset-y = 0
+offset-x = 0
+
+border-top-size = 0
+border-bottom-size = 0
+border-right-size = 0
+border-left-size = 0
+
+
+;----------;
+; LOCATION ;
+;----------;
+
+bottom = false
+monitor = ${env:MONITOR}
+wm-restack = none
+override-redirect = false
+
+;-------;
+; FONTS ;
+;-------;
+
+;font-0 = Hack:size=12;3
+font-0 = Fira Code:size=12;4
+;font-0 = Terminus:size=18;2
+font-1 = Font Awesome 5 Free Solid:size=12;3
+font-2 = Font Awesome 5 Brands:size=12;3
+
+;--------;
+; COLORS ;
+;--------;
+
+; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
+background = #282828
+
+; Foreground ARGB color (e.g. #f00, #ff992a, #ddff1023)
+foreground = #ebdbb2
+
+;---------------;
+; MISCELLANEOUS ;
+;---------------;
+
+fixed-center = true
+padding-left = 2 
+padding-right = 2
+module-margin = 2 2 
+
+modules-left = volume cpu memory network mpd
+modules-center = i3
+modules-right = date time arrow1 poweroff
+
+tray-position = none
+tray-detached = true
+
+;---------;
+; MODULES ;
+;---------;
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = true
+enable-scroll = true
+label-unfocused-foreground = #928374
+label-focused-foreground =#b8bb26 
+label-urgent-foreground = #cc241d
+
+
+
+[module/time]
+type = internal/date
+interval = 1.0
+date =  %H:%M
+
+
+
+[module/date]
+type = internal/date
+date =  %Y-%m-%d
+label = %date%
+
+
+
+[module/volume]
+type = internal/volume
+format-volume = <ramp-volume> <label-volume>
+format-muted =  0%
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+interval = 5
+
+
+
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+interval = 5
+
+
+
+[module/network]
+type = internal/network
+interface = eno1
+label-connected =  
+label-disconnected =  
+
+
+
+[module/poweroff]
+type = custom/script
+exec = echo "" 
+click-left = systemctl poweroff
+click-right = systemctl suspend && i3lock-fancy -pg &
+click-middle = reboot
+
+
+
+[module/mpd]
+type = internal/mpd
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+format-online = <icon-prev> <icon-play> <icon-pause> <icon-next> 
+
+;label-song = %artist%-%title%
+;label-song = %title%
+
+label-offline = mpd is offline
+
+; Only applies if <icon-X> is used
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-random = 
+

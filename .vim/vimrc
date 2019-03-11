@@ -1,0 +1,38 @@
+
+" Set lines numbers
+set number
+set numberwidth=5
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" Encoding ==============================================
+" Autodetect encoding
+" {{{ Locale settings
+" if we have BOM => this is BOM
+if &fileencodings !~? "ucs-bom"
+	set fileencodings^=ucs-bom
+endif
+if &fileencodings !~? "utf-8"
+	let g:added_fenc_utf8 = 1
+	set fileencodings+=utf-8
+endif
+if &fileencodings !~? "default"
+	set fileencodins+=default
+endif
+" }}}
+
+" set file encodings
+set fileencodings=utf-8,cp1251
+
+" Encoding Menu ==========================================
+" define menu for encoding selection
+set wildmenu
+set wcm=<Tab>
+menu Encoding.utf-8   :e ++enc=utf-8<CR>
+menu Encoding.cp1251  :e ++enc=cp1251<CR>
+menu Encoding.koi8-r  :e ++enc=koi8-r<CR>
+menu Encoding.cp866   :e ++enc=cp866<CR>
+menu Encoding.ucs-2le :e ++enc=ucs-2le<CR>
+map <F8> :emenu Encoding.<Tab>
+
+" Status Bar =============================================
+
