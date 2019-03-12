@@ -18,7 +18,7 @@ set $mod Mod4
 # Autostart applications
 exec --no-startup-id ~/.config/i3/screen.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id compton -cb --config ~/.config/compton/compton.conf
+# exec --no-startup-id compton -cb --config ~/.config/compton/compton.conf
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
