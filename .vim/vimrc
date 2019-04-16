@@ -9,27 +9,23 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-
 " General ============================================================= >
-
-
-
-
 " javascript -----------------------
 Plugin 'pangloss/vim-javascript'
-
-
 " html -----------------------------
 Plugin 'othree/html5.vim'
-
-
 " css ------------------------------
 Plugin 'mtscout6/vim-tagbar-css'
-
-
 " NerdTree for files managing
 Plugin 'scrooloose/nerdtree'
+" Coloring csv files
+Plugin 'mechatroner/rainbow_csv'
+" Status line
+Plugin 'vim-airline/vim-airline'
+" Themes for airline
+Plugin 'vim-airline/vim-airline-themes'
+" custom json syntax highlight
+Plugin 'https://github.com/elzr/vim-json'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -47,7 +43,6 @@ Plugin 'scrooloose/nerdtree'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -120,3 +115,23 @@ set smartindent
 
 " syntax highlighting
 syntax enable
+
+" Airline status bar settings
+let g:airline_theme='dracula'
+" убираем "X" для закрытия вкладки мышью (мышью!?)
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline_powerline_fonts = 1
+
+
+" подсвечивать все совпадения при поиске
+set hlsearch
+" подсвечивать совпадение во время поиска на лету
+set incsearch
+
+" включить подсветку синтаксиса
+syntax enable
+" выбираем темный фон
+set background=dark
+
+" Отключаем swap-файлы
+set noswapfile

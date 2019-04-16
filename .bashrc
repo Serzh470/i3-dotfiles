@@ -119,5 +119,5 @@ fi
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="\[\033[01;034m\]\u\[\033[01;35m\]@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\[\033[01;034m\]\u\[\033[01;35m\]@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\n\[\033[01;032m\]$ \[\033[00m\]"
 alias config='/usr/bin/git --git-dir=/home/smatyushkov/.cfg/ --work-tree=/home/smatyushkov'
